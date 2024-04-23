@@ -1,0 +1,54 @@
+{% extends "index.html" %}
+
+{% block title %}
+
+    Question list
+
+{% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <td>Question:</td>
+                <td>Answer:</td>
+                <td>No. of correct guesses:</td>
+                <td>Total no. of guesses:</td>
+                <td>
+
+                    {% if questions %}
+
+                        <form action="/questions" method="post">
+                            <input type="hidden" value="delete" name="delete">
+                            <button class="btn btn-primary" type="submit">Delete all questions</button>
+                        </form>
+
+                    {% endif %}
+
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for question in questions %}
+
+                <tr>
+                    <td>{{ question.text }}</td>
+                    <td>{{ question.answer }}</td>
+                    <td>{{ question.correct }}</td>
+                    <td>{{ question.total }}</td>
+                    <td>
+                        <form action="/questions" method="post">
+                            <input type="hidden" value="{{ question.id }}" name="id">
+                            <button class="btn btn-primary" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}

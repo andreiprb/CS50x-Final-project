@@ -1,0 +1,69 @@
+{% extends "index.html" %}
+
+{% block title %}
+
+    Quiz
+
+{% endblock %}
+
+{% block body %}
+
+    {% if started == False %}
+
+        <div class="mb-3">
+            <form action="/quiz" method="post">
+                <input type="hidden" value="start" name="quiz">
+                <input type="hidden" value="0" name="index">
+                <button class="btn btn-primary" type="submit">Start quiz</button>
+            </form>
+        </div>
+
+        {% if completed == 'true' %}
+
+            <div class="mb-3">
+                <p>WARNING! Retaking the quiz will erase previous scores. Please finish the quiz in order to stay in the leaderboard!</p>
+            </div>
+
+        {% endif %}
+
+    {% else %}
+
+        <div class="mb-3">
+            <h1>{{ question.text }}</h1>
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+            <form action="/quiz" method="post">
+                <div class="mb-3">
+                    <input type="radio" id="1" name="quiz" value="{{ choices[0] }}" display="inline">
+                    <label for="1">{{ choices[0] }} &nbsp;</label>
+
+                    <input type="radio" id="2" name="quiz" value="{{ choices[1] }}" display="inline">
+                    <label for="2">{{ choices[1] }} &nbsp;</label>
+
+                    <input type="radio" id="3" name="quiz" value="{{ choices[2] }}" display="inline">
+                    <label for="4">{{ choices[2] }} &nbsp;</label>
+
+                    <input type="radio" id="3" name="quiz" value="{{ choices[3] }}" display="inline" >
+                    <label for="4">{{ choices[3] }}</label>
+
+                    <input type="hidden" value="{{ index }}" name="index">
+                </div>
+
+                <br>
+
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">Submit answer</button>
+                </div>
+            </form>
+
+            <div class="mb-3">
+                <p>{{ placeholder }}</p>
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

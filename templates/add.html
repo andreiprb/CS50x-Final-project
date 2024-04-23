@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block title %}
+
+    Add a question
+
+{% endblock %}
+
+{% block body %}
+
+    <form action="/add" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="question" name="question" placeholder="Question" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="canswer" name="canswer" placeholder="Correct answer" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="wanswer1" name="wanswer3" placeholder="Wrong answer 1" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="wanswer2" name="wanswer2" placeholder="Wrong answer 2" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="wanswer3" name="wanswer1" placeholder="Wrong answer 3" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add question</button>
+    </form>
+
+    <br><p>{{ placeholder }}</p>
+
+{% endblock %}

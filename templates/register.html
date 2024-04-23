@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}
+
+    Register
+
+{% endblock %}
+
+{% block body %}
+
+    {% if session["user_id"] == -1 %}
+
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+            </div>
+            <button class="btn btn-primary" type="submit">Log In</button>
+        </form>
+
+        <br><p>{{ placeholder }}</p>
+
+    {% else %}
+
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Name" type="text">
+            </div>
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+
+        <br><p>{{ placeholder }}</p>
+
+    {% endif %}
+
+{% endblock %}

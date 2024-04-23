@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+
+{% block title %}
+
+    Previous results
+
+{% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <td>Username:</td>
+                <td>Score:</td>
+                <td width="20%">
+
+                    {% if admin == 1 and entries %}
+
+                        <form action="/statistic" method="post">
+                            <input type="hidden" value="delete" name="delete">
+                            <button class="btn btn-primary" type="submit">Delete all entries</button>
+                        </form>
+
+                    {% endif %}
+
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for user in entries %}
+
+                <tr>
+                    <td>{{ user.username }}_{{ user.id }}</td>
+                    <td>{{ user.score }}/{{ noq }}</td>
+                    <td width="20%">
+
+                        {% if admin == 1 %}
+
+                            <form action="/statistic" method="post">
+                                <input type="hidden" value="{{ user.id }}" name="id">
+                                <button class="btn btn-primary" type="submit">Delete entry</button>
+                            </form>
+
+                        {% endif %}
+
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
