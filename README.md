@@ -1,8 +1,4 @@
 # QUIZ
-#### Video Demo:  https://youtu.be/0-ZibSFqTpY
-#### Project description (found also in the video subtitles):
-
-##### Hello, my name is Priboi Andrei, from Brasov, Romania, and this is my final project for CS50. This project is a quiz developed using Flask, Python, and SQL.
 
 ##### As a normal user, you can take the quiz and see your score afterward. If you're not satisfied with your score, you can opt to retake the quiz. A user can retake as many quizzes as they want under the same entry, so long as they do not log out. Once you logged out, registering with the same username will result in a different entry, based on the numeric id displayed after the username.
 
